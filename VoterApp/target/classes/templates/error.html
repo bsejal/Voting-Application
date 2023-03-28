@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Error</title>
+
+</head>
+<body>
+	<h2> OOPS...Something went Wrong!</h2>
+<div>
+				
+				
+	<table>
+
+		<tbody>
+			<tr th:each="err : ${errorMap}">
+				<td th:text="${err}">Error Description</td>
+			</tr>
+			
+		</tbody>
+	</table>
+</body>
+</html>

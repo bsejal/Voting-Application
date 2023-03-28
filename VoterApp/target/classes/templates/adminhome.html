@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Admin Home</title>
+	<link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+
+<body>
+	<h2 align="center">Admin Home</h2>
+
+	<div style="display: flex; justify-content: space-around;">
+		<!-- Candidate Table -->
+		<table border="2" cellpadding="5px">
+			<thead>
+				<tr>
+					<th colspan="5">Candidates</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>Candidate Name</th>
+					<th>Email</th>
+					<th>Count</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="cd : ${candidates}">
+					<td th:text="${cd.id}"></td>
+					<td th:text="${cd.name}"></td>
+					<td th:text="${cd.email}"></td>
+					<td th:text="${cd.count}"></td>
+					<td>
+						<form th:action="@{/deletecandidate/} + ${cd.id}" th:method="delete">
+							<button type="submit">Delete</button>
+						</form>
+
+					</td>
+					<tr>
+					<th colspan="3"> <button><a href="/registercandidate" >Add Candidate</th></a></button>
+					<th colspan="2"> <button><a href="/registeradmin" >Add Admin</th></a></button>
+				</tr>
+				</tr>
+			</tbody>
+			
+		</table>
+
+
+
+		<!-- Custom User Table -->
+		<table border="2" cellpadding="5px">
+			<thead>
+				<tr>
+					<th colspan="5">Voters</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>Candidate Name</th>
+					<th>Voter Name</th>
+					<th>Email</th>
+					<th>Has Voted</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="user : ${customusers}" th:if="${user.role} == 'ROLE_USER'">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.candidateEmail}"></td>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.email}"></td>
+					<td th:text="${user.hasVoted}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<button align="center"><a href="/logout" >logout</a></button>
+	
+</body>
+
+</html>

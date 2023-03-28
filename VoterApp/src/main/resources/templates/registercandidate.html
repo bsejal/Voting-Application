@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register candidate</title>
+</head>
+<body>
+	<h2 align="center">Register Candidate</h2>
+
+	<form th:action="@{/addcandidate}" th:method="post">
+
+		<table align="center">
+			<tbody>
+				<tr>
+					<td>Candidate Name</td>
+					<td><input type="text" th:field="${candidate.name}" required></td>
+				</tr>
+				<tr>
+					<td>Candidate Email</td>
+					<td><input type="email" th:field="${candidate.email}" required></td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<button type="submit">Register Candidate</button>
+					</th>
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vote a Candidate</title>
+<link rel="stylesheet" href="Vote.css">
+</head>
+<body>
+	<center>
+		<h2>Vote a Candidate</h2>
+		<form th:method="put" th:action="@{/submitvote}">
+			<div class="container">
+				<table border="1" cellpadding="5px">
+
+					<tbody class="body">
+						<tr th:each="cd : ${candidates}">
+							<td><input type="radio"
+								th:field="${tempUser.candidateEmail}" th:value="${cd.email}">
+							</td>
+
+							<td th:text="${cd.name}"></td>
+						</tr>
+
+						<tr>
+							<th colspan="2" class="btn">
+								<button type="submit">Submit Vote</button>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register User</title>
+</head>
+<body>
+	<h2 align="center">Register User</h2>
+
+
+	<form th:action="@{/adduser}" th:method="post">
+
+		<table align="center">
+
+			  <tbody>
+				<tr>
+					<td>Name</td>
+					<td><input type="text" th:field="${user.name}" required></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="email" th:field="${user.email}" required></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="text" th:field="${user.passcode}" required></td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<button type="submit">Register</button>
+					</th>
+				</tr>
+
+			</tbody>
+
+		</table>
+	</form>
+
+</body>
+</html>
